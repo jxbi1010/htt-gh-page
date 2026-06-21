@@ -1,0 +1,230 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Heterogeneous Tactile Transformer (HTT): learning shared tactile representations across heterogeneous sensors for contact-rich manipulation.">
+  <meta name="keywords" content="Tactile sensing, tactile representation learning, contact-rich manipulation, robot foundation model">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Heterogeneous Tactile Transformer</title>
+
+  <!-- HTML Meta Tags -->
+  <meta name="description" content="Heterogeneous Tactile Transformer (HTT): learning shared tactile representations across heterogeneous sensors.">
+
+  <link rel="stylesheet" href="./static/css/juxtapose.css">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/bootstrap.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<!-- Top bar navigation -->
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+</nav>
+
+<!-- Title -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container" style="max-width: 1300px;">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Heterogeneous Tactile Transformer
+          </h1>
+          <h2 class="subtitle is-4 publication-subtitle" style="margin-bottom: 1.5rem;">
+            Learning Shared Tactile Representations Across Heterogeneous Sensors
+          </h2>
+
+          <!-- authors -->
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://jxbi1010.github.io/">Jianxin Bi</a><sup>1&#8224;</sup>,
+            </span>
+            <span class="author-block">
+              Qiang Wang<sup>1</sup>,
+            </span>
+            <span class="author-block">
+              Jayaram Reddy<sup>1</sup>,
+            </span>
+            <span class="author-block">
+              Kelvin Lin<sup>1</sup>,
+            </span>
+            <span class="author-block">
+              Soibkhon Khajikhanov<sup>1</sup>,
+            </span>
+            <span class="author-block">
+              Ruihan Gao<sup>2</sup>,
+            </span>
+            <span class="author-block">
+              and <a href="https://haroldsoh.com/">Harold Soh</a><sup>1,3&#8224;</sup>
+            </span>
+          </div>
+          <div class="is-size-5 publication-authors" style="margin-top: 0.75rem;">
+            <span class="author-block"><sup>1</sup>National University of Singapore</span>&nbsp;&nbsp;
+            <span class="author-block"><sup>2</sup>Carnegie Mellon University</span>&nbsp;&nbsp;
+            <span class="author-block"><sup>3</sup>Smart Systems Institute, NUS</span>
+          </div>
+          <div class="is-size-6 publication-authors" style="margin-top: 0.4rem;">
+            <span class="author-block"><sup>&#8224;</sup>Corresponding authors</span>
+          </div>
+
+          <!-- Buttons -->
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- Arxiv Link -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/XXXX.XXXXX"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+
+              <!-- Code Link -->
+              <span class="link-block">
+                <a href="https://github.com/jxbi1010/HTT"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- TLDR -->
+<div class="container" style="max-width: 1100px;">
+  <h2 class="subtitle text-justify mb-4">
+    <b>HTT</b> learns transferable tactile representations across heterogeneous sensors:
+    <br>1) <b>Pretraining</b>: per-modality masked reconstruction + cross-modal alignment over 1.6M paired frames from four sensors;
+    <br>2) <b>Transfer</b>: shared representations adapt to new perception tasks and previously unseen sensors for contact-rich manipulation.
+  </h2>
+</div>
+
+<!-- Teaser -->
+<div class="container" style="max-width: 1200px;">
+  <div class="column is-centered">
+    <figure class="image">
+      <img src="static/images/teasor.png" alt="HTT Teaser" style="width: 100%; height: auto;">
+      <figcaption class="has-text-centered" style="margin-top: 10px; font-style: italic; color: #666;">
+        <strong>Heterogeneous Tactile Transformer (HTT).</strong> HTT is pretrained on the <em>Heterogeneous Paired Tactile (HPT) dataset</em> &mdash; 1.6M synchronized paired frames across four distinct sensors collected with a UMI device. HTT adopts sensor-specific encoders and a shared transformer trunk. Data from each sensor is patchified, encoded, and forwarded to the shared trunk. During pretraining, decoders reconstruct each sensor's input while cross-sensor predictors align the shared latent space across heterogeneous sensors. The pretrained model applies to distinct perception tasks and boosts manipulation policy learning on unseen sensors.
+      </figcaption>
+    </figure>
+  </div>
+  <hr style="max-width: 1200px;">
+</div>
+
+<!-- Abstract -->
+<div class="container" style="max-width: 900px;">
+  <div class="column is-centered has-text-centered">
+      <h2 class="title has-text-centered">Abstract</h2>
+      <div class="content has-text-justified">
+        <p>
+          Tactile sensors are inherently heterogeneous: a model trained on one sensor cannot be directly used on another, which limits learning contact-rich manipulation policies from diverse tactile data at scale. To bridge this gap, we propose the <b>Heterogeneous Tactile Transformer (HTT)</b>, a framework that learns shared tactile representations across heterogeneous sensors. HTT consists of sensor-specific encoders and a shared transformer trunk, and is pretrained with per-modality masked reconstruction together with cross-modal alignment between paired sensors. Pretraining uses our novel <b>Heterogeneous Paired Tactile (HPT) dataset</b>, containing 1.6M synchronized paired frames across four vision- and array-based tactile sensors. Across distinct tactile perception and real-world manipulation tasks, HTT is shown to learn transferable representations that adapt to new tasks and previously unseen sensors. Dataset, code, and model checkpoints will be released upon publication.
+        </p>
+      </div>
+  </div>
+  <hr style="max-width: 1200px;">
+</div>
+
+<!-- Sensors -->
+<div class="container" style="max-width: 1200px;">
+  <div class="column is-centered">
+    <h2 class="title has-text-centered">Heterogeneous Tactile Sensors</h2>
+    <figure class="image">
+      <img src="static/images/sensors.png" alt="Tactile Sensors" style="width: 100%; height: auto;">
+      <figcaption class="has-text-centered" style="margin-top: 10px; font-style: italic; color: #666;">
+        The four heterogeneous tactile sensors used in HPT pretraining, each mounted in the UMI gripper shell. Left to right: GelSight Mini and 9DTact (optical-based), TAC-02 and Xela uSkin (array-based).
+      </figcaption>
+    </figure>
+  </div>
+  <hr style="max-width: 1200px;">
+</div>
+
+<!-- Dataset -->
+<div class="container" style="max-width: 1200px;">
+  <div class="column is-centered">
+    <h2 class="title has-text-centered">HPT Dataset</h2>
+    <figure class="image">
+      <img src="static/images/dataset.png" alt="HPT Dataset" style="width: 100%; height: auto;">
+      <figcaption class="has-text-centered" style="margin-top: 10px; font-style: italic; color: #666;">
+        <strong>Force/slip data collection and dataset statistics.</strong> <strong>A1.</strong> A tactile sensor and a 6-D F/T sensor are mounted on a robot arm; a probe rig contacts the tactile sensor while synchronized tactile frames and ground-truth force are recorded. <strong>A2.</strong> Example tactile frames from the four probe geometries. <strong>B1.</strong> The force range spans up to 40&nbsp;N normal and 14&nbsp;N shear. <strong>B2.</strong> Slip labels are heavily imbalanced (13.6% static, 1.2% incipient, 85.2% slide), making the rare classes challenging to detect.
+      </figcaption>
+    </figure>
+  </div>
+  <hr style="max-width: 1200px;">
+</div>
+
+<!-- Real Robot -->
+<div class="container" style="max-width: 1200px;">
+  <div class="column is-centered">
+    <h2 class="title has-text-centered">Real-World Manipulation</h2>
+    <figure class="image">
+      <img src="static/images/real_robot.png" alt="Real Robot Experiments" style="width: 100%; height: auto;">
+      <figcaption class="has-text-centered" style="margin-top: 10px; font-style: italic; color: #666;">
+        Real-world Toy Screw and Grasp Tofu experiments. Left: task setup and tactile image from the Sharpa fingertip. Middle: final rotation of the screw &mdash; more than 600 degrees (close to tight) is considered a success. Right: Grasp Tofu completion status (20 rollouts); slip is the most common failure mode. On both tasks, HTT representations achieve the best results.
+      </figcaption>
+    </figure>
+  </div>
+  <hr style="max-width: 1200px;">
+</div>
+
+
+<!-- BibTex -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="text-left">BibTeX</h2>
+    <pre><code>@article{bi2026htt,
+      title={Heterogeneous Tactile Transformer},
+      author={Bi, Jianxin and Wang, Qiang and Reddy, Jayaram and Lin, Kelvin and Khajikhanov, Soibkhon and Gao, Ruihan and Soh, Harold},
+      year={2026},
+}</code></pre>
+</div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is adapted from <a href="https://github.com/nerfies/nerfies.github.io">nerfies</a>.
+            We thank the authors for open-sourcing the source code.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
