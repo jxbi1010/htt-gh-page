@@ -57,7 +57,7 @@
           <!-- authors -->
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://jxbi1010.github.io/">Jianxin Bi</a><sup>1&#8224;</sup>,
+              <a href="https://scholar.google.com/citations?user=Jsi9B8wAAAAJ&hl=en">Jianxin Bi</a><sup>1&#8224;</sup>,
             </span>
             <span class="author-block">
               Qiang Wang<sup>1</sup>,
@@ -72,10 +72,10 @@
               Soibkhon Khajikhanov<sup>1</sup>,
             </span>
             <span class="author-block">
-              Ruihan Gao<sup>2</sup>,
+              <a href="https://scholar.google.com/citations?user=rObfh9sAAAAJ&hl=en">Ruihan Gao</a><sup>2</sup>,
             </span>
             <span class="author-block">
-              and <a href="https://haroldsoh.com/">Harold Soh</a><sup>1,3&#8224;</sup>
+              and <a href="https://scholar.google.com/citations?user=lkgd1BsAAAAJ&hl=en">Harold Soh</a><sup>1,3&#8224;</sup>
             </span>
           </div>
           <div class="is-size-5 publication-authors" style="margin-top: 0.75rem;">
@@ -103,15 +103,18 @@
 
               <!-- Code Link -->
               <span class="link-block">
-                <a href="https://github.com/jxbi1010/HTT"
-                   class="external-link button is-normal is-rounded is-dark">
+                <a class="external-link button is-normal is-rounded is-dark" disabled
+                   style="pointer-events: none; opacity: 0.65;">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
-                  <span>Code</span>
+                  <span>Code (Coming in Aug 2026)</span>
                   </a>
               </span>
             </div>
+            <p class="is-size-6" style="margin-top: 0.9rem; color:#b08900; font-weight:600;">
+              <i class="fas fa-hourglass-half" style="margin-right:6px;"></i>Under Review
+            </p>
           </div>
         </div>
       </div>
@@ -120,10 +123,25 @@
 </section>
 
 
+<!-- Overview Video -->
+<style>
+  .video-embed { position: relative; width: 100%; padding-top: 56.25%; /* 16:9 */ margin: 0 auto 1rem; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,.2); }
+  .video-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+</style>
+<div class="container" style="max-width: 1000px; margin-top: 1.5rem;">
+  <div class="video-embed">
+    <iframe src="https://www.youtube.com/embed/idgpSHDUcIQ"
+            title="Heterogeneous Tactile Transformer — Overview"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen loading="lazy"></iframe>
+  </div>
+</div>
+
 <!-- TLDR -->
 <div class="container" style="max-width: 1100px;">
   <h2 class="subtitle text-justify mb-4">
-    <b>HTT</b> learns transferable tactile representations across heterogeneous sensors:
+    <b>HTT</b> learns shared tactile representations across heterogeneous sensors:
     <br>1) <b>Pretraining</b>: per-modality masked reconstruction + cross-modal alignment over 1.6M paired frames from four sensors;
     <br>2) <b>Transfer</b>: shared representations adapt to new perception tasks and previously unseen sensors for contact-rich manipulation.
   </h2>
@@ -133,7 +151,7 @@
 <div class="container" style="max-width: 1200px;">
   <div class="column is-centered">
     <figure class="image">
-      <img src="static/images/teasor.png" alt="HTT Teaser" style="width: 100%; height: auto;">
+      <img src="static/images/teasor.svg" alt="HTT Teaser" style="width: 100%; height: auto;">
       <figcaption class="has-text-centered" style="margin-top: 10px; font-style: italic; color: #666;">
         <strong>Heterogeneous Tactile Transformer (HTT).</strong> HTT is pretrained on the <em>Heterogeneous Paired Tactile (HPT) dataset</em> &mdash; 1.6M synchronized paired frames across four distinct sensors collected with a UMI device. HTT adopts sensor-specific encoders and a shared transformer trunk. Data from each sensor is patchified, encoded, and forwarded to the shared trunk. During pretraining, decoders reconstruct each sensor's input while cross-sensor predictors align the shared latent space across heterogeneous sensors. The pretrained model applies to distinct perception tasks and boosts manipulation policy learning on unseen sensors.
       </figcaption>
@@ -160,7 +178,7 @@
   <div class="column is-centered">
     <h2 class="title has-text-centered">Heterogeneous Tactile Sensors</h2>
     <figure class="image">
-      <img src="static/images/sensors.png" alt="Tactile Sensors" style="width: 100%; height: auto;">
+      <img src="static/images/sensors.svg" alt="Tactile Sensors" style="width: 100%; height: auto;">
       <figcaption class="has-text-centered" style="margin-top: 10px; font-style: italic; color: #666;">
         The four heterogeneous tactile sensors used in HPT pretraining, each mounted in the UMI gripper shell. Left to right: GelSight Mini and 9DTact (optical-based), TAC-02 and Xela uSkin (array-based).
       </figcaption>
@@ -174,7 +192,7 @@
   <div class="column is-centered">
     <h2 class="title has-text-centered">HPT Dataset</h2>
     <figure class="image">
-      <img src="static/images/dataset.png" alt="HPT Dataset" style="width: 100%; height: auto;">
+      <img src="static/images/dataset.svg" alt="HPT Dataset" style="width: 100%; height: auto;">
       <figcaption class="has-text-centered" style="margin-top: 10px; font-style: italic; color: #666;">
         <strong>Force/slip data collection and dataset statistics.</strong> <strong>A1.</strong> A tactile sensor and a 6-D F/T sensor are mounted on a robot arm; a probe rig contacts the tactile sensor while synchronized tactile frames and ground-truth force are recorded. <strong>A2.</strong> Example tactile frames from the four probe geometries. <strong>B1.</strong> The force range spans up to 40&nbsp;N normal and 14&nbsp;N shear. <strong>B2.</strong> Slip labels are heavily imbalanced (13.6% static, 1.2% incipient, 85.2% slide), making the rare classes challenging to detect.
       </figcaption>
@@ -188,12 +206,90 @@
   <div class="column is-centered">
     <h2 class="title has-text-centered">Real-World Manipulation</h2>
     <figure class="image">
-      <img src="static/images/real_robot.png" alt="Real Robot Experiments" style="width: 100%; height: auto;">
+      <img src="static/images/real_robot.svg" alt="Real Robot Experiments" style="width: 100%; height: auto;">
       <figcaption class="has-text-centered" style="margin-top: 10px; font-style: italic; color: #666;">
         Real-world Toy Screw and Grasp Tofu experiments. Left: task setup and tactile image from the Sharpa fingertip. Middle: final rotation of the screw &mdash; more than 600 degrees (close to tight) is considered a success. Right: Grasp Tofu completion status (20 rollouts); slip is the most common failure mode. On both tasks, HTT representations achieve the best results.
       </figcaption>
     </figure>
   </div>
+  <hr style="max-width: 1200px;">
+</div>
+
+
+<!-- ============ VIDEO GALLERIES ============ -->
+<style>
+  .vid-card { margin-bottom: 1.2rem; }
+  .vid-card video { width: 100%; height: auto; border-radius: 6px; background: #000; box-shadow: 0 1px 4px rgba(0,0,0,.18); }
+  .vid-label { text-align: center; margin-top: 6px; font-size: 0.92rem; }
+  .vid-label .tag-ours { color: #2ecc40; font-weight: 700; }
+  .gallery-subtitle { font-weight: 600; margin: 0.6rem 0 0.4rem; }
+</style>
+
+<div class="container" style="max-width: 1200px;">
+  <h2 class="title has-text-centered">Video Gallery</h2>
+
+  <!-- ===== Perception ===== -->
+  <h3 class="subtitle is-4 has-text-centered" style="margin-bottom: 0.4rem;">Tactile Perception</h3>
+  <p class="has-text-centered" style="color:#666; margin-bottom: 1rem;">Raw tactile streams across the four heterogeneous sensors used for force estimation and slip detection.</p>
+
+  <p class="gallery-subtitle">Force Estimation</p>
+  <div class="columns is-multiline">
+    <div class="column is-6 vid-card"><video muted loop playsinline controls preload="none" poster="static/videos/perception/force_9dtact.jpg"><source src="static/videos/perception/force_9dtact.mp4" type="video/mp4"></video><div class="vid-label">9DTact</div></div>
+    <div class="column is-6 vid-card"><video muted loop playsinline controls preload="none" poster="static/videos/perception/force_gsmini.jpg"><source src="static/videos/perception/force_gsmini.mp4" type="video/mp4"></video><div class="vid-label">GelSight Mini</div></div>
+    <div class="column is-6 vid-card"><video muted loop playsinline controls preload="none" poster="static/videos/perception/force_tac02.jpg"><source src="static/videos/perception/force_tac02.mp4" type="video/mp4"></video><div class="vid-label">TAC-02</div></div>
+    <div class="column is-6 vid-card"><video muted loop playsinline controls preload="none" poster="static/videos/perception/force_xela.jpg"><source src="static/videos/perception/force_xela.mp4" type="video/mp4"></video><div class="vid-label">Xela uSkin</div></div>
+  </div>
+
+  <p class="gallery-subtitle">Slip Detection</p>
+  <div class="columns is-multiline">
+    <div class="column is-3 vid-card"><video muted loop playsinline controls preload="none" poster="static/videos/perception/slip_9dtact.jpg"><source src="static/videos/perception/slip_9dtact.mp4" type="video/mp4"></video><div class="vid-label">9DTact</div></div>
+    <div class="column is-3 vid-card"><video muted loop playsinline controls preload="none" poster="static/videos/perception/slip_gsmini.jpg"><source src="static/videos/perception/slip_gsmini.mp4" type="video/mp4"></video><div class="vid-label">GelSight Mini</div></div>
+    <div class="column is-3 vid-card"><video muted loop playsinline controls preload="none" poster="static/videos/perception/slip_tac02.jpg"><source src="static/videos/perception/slip_tac02.mp4" type="video/mp4"></video><div class="vid-label">TAC-02</div></div>
+    <div class="column is-3 vid-card"><video muted loop playsinline controls preload="none" poster="static/videos/perception/slip_xela.jpg"><source src="static/videos/perception/slip_xela.mp4" type="video/mp4"></video><div class="vid-label">Xela uSkin</div></div>
+  </div>
+
+  <hr style="max-width: 1200px;">
+
+  <!-- ===== Simulation ===== -->
+  <h3 class="subtitle is-4 has-text-centered" style="margin-bottom: 0.4rem;">Simulation (ManiFeel Benchmark)</h3>
+  <p class="has-text-centered" style="color:#666; margin-bottom: 1rem;">HTT embeddings boost policy learning on contact-rich simulated tasks, with two tactile modalities: RGB tactile images and force-field (FF).</p>
+
+  <p class="gallery-subtitle">Bulb Installation</p>
+  <div class="columns is-multiline">
+    <div class="column is-3 vid-card"><video muted loop playsinline controls preload="none" poster="static/videos/simulation/tacRGB_bulb_success.jpg"><source src="static/videos/simulation/tacRGB_bulb_success.mp4" type="video/mp4"></video><div class="vid-label">HTT (RGB) &mdash; Success</div></div>
+    <div class="column is-3 vid-card"><video muted loop playsinline controls preload="none" poster="static/videos/simulation/tacRGB_bulb_fail.jpg"><source src="static/videos/simulation/tacRGB_bulb_fail.mp4" type="video/mp4"></video><div class="vid-label">HTT (RGB) &mdash; Failure</div></div>
+    <div class="column is-3 vid-card"><video muted loop playsinline controls preload="none" poster="static/videos/simulation/tacff_bulb_success.jpg"><source src="static/videos/simulation/tacff_bulb_success.mp4" type="video/mp4"></video><div class="vid-label">HTT (FF) &mdash; Success</div></div>
+    <div class="column is-3 vid-card"><video muted loop playsinline controls preload="none" poster="static/videos/simulation/tacff_bulb_fail.jpg"><source src="static/videos/simulation/tacff_bulb_fail.mp4" type="video/mp4"></video><div class="vid-label">HTT (FF) &mdash; Failure</div></div>
+  </div>
+
+  <p class="gallery-subtitle">Peg Insertion</p>
+  <div class="columns is-multiline">
+    <div class="column is-3 vid-card"><video muted loop playsinline controls preload="none" poster="static/videos/simulation/tacRGB_peg_success.jpg"><source src="static/videos/simulation/tacRGB_peg_success.mp4" type="video/mp4"></video><div class="vid-label">HTT (RGB) &mdash; Success</div></div>
+    <div class="column is-3 vid-card"><video muted loop playsinline controls preload="none" poster="static/videos/simulation/tacRGB_peg_fail.jpg"><source src="static/videos/simulation/tacRGB_peg_fail.mp4" type="video/mp4"></video><div class="vid-label">HTT (RGB) &mdash; Failure</div></div>
+    <div class="column is-3 vid-card"><video muted loop playsinline controls preload="none" poster="static/videos/simulation/tacff_peg_success.jpg"><source src="static/videos/simulation/tacff_peg_success.mp4" type="video/mp4"></video><div class="vid-label">HTT (FF) &mdash; Success</div></div>
+    <div class="column is-3 vid-card"><video muted loop playsinline controls preload="none" poster="static/videos/simulation/tacff_peg_fail.jpg"><source src="static/videos/simulation/tacff_peg_fail.mp4" type="video/mp4"></video><div class="vid-label">HTT (FF) &mdash; Failure</div></div>
+  </div>
+
+  <hr style="max-width: 1200px;">
+
+  <!-- ===== Real Robots ===== -->
+  <h3 class="subtitle is-4 has-text-centered" style="margin-bottom: 0.4rem;">Real-World Experiments</h3>
+  <p class="has-text-centered" style="color:#666; margin-bottom: 1rem;">Sharpa hand on a Franka arm, camera-free. <b>qpos</b>: joint positions only; <b>wrench</b>: qpos + 6-D fingertip force; <b>HTT</b>: qpos + HTT tactile embeddings (zero-shot on unseen sensors).</p>
+
+  <p class="gallery-subtitle">Toy Screw <span style="color:#888; font-weight:400;">(success rate &mdash; qpos 5%, wrench 50%, HTT 95%)</span></p>
+  <div class="columns is-multiline">
+    <div class="column is-4 vid-card"><video muted loop playsinline controls preload="none" poster="static/videos/realrobot/screw_qpos.jpg"><source src="static/videos/realrobot/screw_qpos.mp4" type="video/mp4"></video><div class="vid-label">Qpos</div></div>
+    <div class="column is-4 vid-card"><video muted loop playsinline controls preload="none" poster="static/videos/realrobot/screw_wrench.jpg"><source src="static/videos/realrobot/screw_wrench.mp4" type="video/mp4"></video><div class="vid-label">Wrench</div></div>
+    <div class="column is-4 vid-card"><video muted loop playsinline controls preload="none" poster="static/videos/realrobot/screw_htt.jpg"><source src="static/videos/realrobot/screw_htt.mp4" type="video/mp4"></video><div class="vid-label"><span class="tag-ours">HTT (Ours)</span></div></div>
+  </div>
+
+  <p class="gallery-subtitle">Grasp Tofu <span style="color:#888; font-weight:400;">(success rate &mdash; qpos 5%, wrench 35%, HTT 55%)</span></p>
+  <div class="columns is-multiline">
+    <div class="column is-4 vid-card"><video muted loop playsinline controls preload="none" poster="static/videos/realrobot/tofu_qpos.jpg"><source src="static/videos/realrobot/tofu_qpos.mp4" type="video/mp4"></video><div class="vid-label">Qpos</div></div>
+    <div class="column is-4 vid-card"><video muted loop playsinline controls preload="none" poster="static/videos/realrobot/tofu_wrench.jpg"><source src="static/videos/realrobot/tofu_wrench.mp4" type="video/mp4"></video><div class="vid-label">Wrench</div></div>
+    <div class="column is-4 vid-card"><video muted loop playsinline controls preload="none" poster="static/videos/realrobot/tofu_htt.jpg"><source src="static/videos/realrobot/tofu_htt.mp4" type="video/mp4"></video><div class="vid-label"><span class="tag-ours">HTT (Ours)</span></div></div>
+  </div>
+
   <hr style="max-width: 1200px;">
 </div>
 
