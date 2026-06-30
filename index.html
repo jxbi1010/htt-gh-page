@@ -92,7 +92,7 @@
             <div class="publication-links">
               <!-- Arxiv Link -->
               <span class="link-block">
-                <a href="https://arxiv.org/abs/XXXX.XXXXX"
+                <a href="https://arxiv.org/abs/2606.29948"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -108,10 +108,24 @@
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
-                  <span>Code (Coming in Aug 2026)</span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+              <!-- Hugging Face Link -->
+              <span class="link-block">
+                <a class="external-link button is-normal is-rounded is-dark" disabled
+                   style="pointer-events: none; opacity: 0.65;">
+                  <span class="icon">
+                      <span style="font-size: 1.1em;">&#129303;</span>
+                  </span>
+                  <span>Models</span>
                   </a>
               </span>
             </div>
+            <p class="is-size-6" style="margin-top: 0.7rem; color:#666;">
+              Code, dataset, and checkpoints to be released in Aug 2026.
+            </p>
             <p class="is-size-6" style="margin-top: 0.9rem; color:#b08900; font-weight:600;">
               <i class="fas fa-hourglass-half" style="margin-right:6px;"></i>Under Review
             </p>
@@ -140,18 +154,26 @@
 
 <!-- TLDR -->
 <div class="container" style="max-width: 1100px;">
-  <h2 class="subtitle text-justify mb-4">
+  <h2 class="subtitle mb-3" style="margin-bottom: 0.6rem;">
     <b>HTT</b> learns shared tactile representations across heterogeneous sensors:
-    <br>1) <b>Pretraining</b>: per-modality masked reconstruction + cross-modal alignment over 1.6M paired frames from four sensors;
-    <br>2) <b>Transfer</b>: shared representations adapt to new perception tasks and previously unseen sensors for contact-rich manipulation.
   </h2>
+  <div class="subtitle" style="margin-bottom: 0;">
+    <div style="display: flex; align-items: baseline; margin-bottom: 0.4rem;">
+      <span style="flex: 0 0 2.2rem; font-weight: 700;">1)</span>
+      <span style="flex: 1;"><b>Pretraining</b>: per-modality masked reconstruction + cross-modal alignment over 1.6M paired frames from four sensors.</span>
+    </div>
+    <div style="display: flex; align-items: baseline;">
+      <span style="flex: 0 0 2.2rem; font-weight: 700;">2)</span>
+      <span style="flex: 1;"><b>Transfer</b>: shared representations adapt to new perception tasks and previously unseen sensors for contact-rich manipulation.</span>
+    </div>
+  </div>
 </div>
 
 <!-- Teaser -->
 <div class="container" style="max-width: 1200px;">
   <div class="column is-centered">
     <figure class="image">
-      <img src="static/images/teasor.svg" alt="HTT Teaser" style="width: 100%; height: auto;">
+      <img src="static/images/teasor_v1.svg" alt="HTT Teaser" style="width: 100%; height: auto;">
       <figcaption class="has-text-centered" style="margin-top: 10px; font-style: italic; color: #666;">
         <strong>Heterogeneous Tactile Transformer (HTT).</strong> HTT is pretrained on the <em>Heterogeneous Paired Tactile (HPT) dataset</em> &mdash; 1.6M synchronized paired frames across four distinct sensors collected with a UMI device. HTT adopts sensor-specific encoders and a shared transformer trunk. Data from each sensor is patchified, encoded, and forwarded to the shared trunk. During pretraining, decoders reconstruct each sensor's input while cross-sensor predictors align the shared latent space across heterogeneous sensors. The pretrained model applies to distinct perception tasks and boosts manipulation policy learning on unseen sensors.
       </figcaption>
@@ -302,6 +324,10 @@
       title={Heterogeneous Tactile Transformer},
       author={Bi, Jianxin and Wang, Qiang and Reddy, Jayaram and Lin, Kelvin and Khajikhanov, Soibkhon and Gao, Ruihan and Soh, Harold},
       year={2026},
+      eprint={2606.29948},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2606.29948},
 }</code></pre>
 </div>
 </section>
